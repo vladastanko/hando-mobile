@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Hando",
+    "slug": "hando-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "hando",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F4F2FF"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.hando.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Hando koristi vašu lokaciju da prikaže poslove u blizini.",
+        "NSCameraUsageDescription": "Hando koristi kameru za otpremanje dokumenata.",
+        "NSPhotoLibraryUsageDescription": "Hando pristupa galeriji za otpremanje dokumenata."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#F4F2FF"
+      },
+      "package": "com.hando.app",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-location",
+      "expo-image-picker",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "backgroundColor": "#F4F2FF",
+          "imageWidth": 200
+        }
+      ]
+    ],
+    "extra": {
+      "supabaseUrl": "https://wutewsngkxqftaugjdaz.supabase.co",
+      "supabaseAnonKey": "sb_publishable_wpUAdz6wA4FslYOtedknWw_oimdoLvL",
+      "router": { "origin": false }
+    }
+  }
+}
