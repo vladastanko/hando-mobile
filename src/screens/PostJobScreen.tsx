@@ -125,7 +125,7 @@ export default function PostJobScreen({ onClose, onPosted }: Props) {
     }
 
     // Deduct 10 credits
-    await supabase.rpc('deduct_credits', { user_id: user.id, amount: 10 }).catch(() => {});
+    void supabase.rpc('deduct_credits', { user_id: user.id, amount: 10 });
     await refreshCredits();
     await refreshProfile();
 

@@ -169,8 +169,7 @@ export default function InboxScreen() {
       await supabase
         .from('conversations')
         .update({ last_message: content, last_message_at: new Date().toISOString() })
-        .eq('id', activeConvo.id)
-        .catch(() => {});
+        .eq('id', activeConvo.id);
     }
     setSending(false);
   };
@@ -292,7 +291,7 @@ export default function InboxScreen() {
                   <Text style={styles.convoLast} numberOfLines={1}>{item.last_message}</Text>
                 )}
               </View>
-              <Ionicons name="chevron-right" size={16} color={colors.tx3} />
+              <Ionicons name="chevron-forward" size={16} color={colors.tx3} />
             </Pressable>
           )}
         />

@@ -260,7 +260,7 @@ export default function ApplicationsScreen() {
       </View>
       <View style={styles.chevronRow}>
         <Text style={styles.tapToView}>Tap to view applicants</Text>
-        <Ionicons name="chevron-right" size={16} color={colors.tx3} />
+        <Ionicons name="chevron-forward" size={16} color={colors.tx3} />
       </View>
     </Pressable>
   );

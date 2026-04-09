@@ -22,7 +22,7 @@ export default function ReferralScreen() {
     if (!user) return;
     setLoading(true);
     referrals.get(user.id).then(({ data }) => {
-      if (data) setList(data as Referral[]);
+      if (data) setList(data as unknown as Referral[]);
       setLoading(false);
     });
   }, [user]);

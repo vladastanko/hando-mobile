@@ -50,7 +50,7 @@
     ],
     "extra": {
       "supabaseUrl": "https://wutewsngkxqftaugjdaz.supabase.co",
-      "supabaseAnonKey": "sb_publishable_wpUAdz6wA4FslYOtedknWw_oimdoLvL",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1dGV3c25na3hxZnRhdWdqZGF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyNjczNzUsImV4cCI6MjA4ODg0MzM3NX0._Rv_-exm504n7t74NQFZcjF6Z58J-jGMAv_4WQu7foU",
       "router": { "origin": false }
     }
   }

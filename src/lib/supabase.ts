@@ -109,7 +109,7 @@ export const profiles = {
     }
   },
   updateLocation: async (userId: string, lat: number, lng: number) => {
-    await supabase.rpc('update_user_location', { user_id: userId, lat, lng }).catch(() => {});
+    void supabase.rpc('update_user_location', { user_id: userId, lat, lng });
   },
 };
 
@@ -182,8 +182,7 @@ export const applications = {
       .select()
       .single();
     if (!error) {
-      await supabase.from('profiles').update({ credits: supabase.rpc('decrement', { x: 3 }) }).eq('id', workerId).catch(() => {});
-      await supabase.rpc('deduct_credits', { user_id: workerId, amount: 3 }).catch(() => {});
+      void supabase.rpc('deduct_credits', { user_id: workerId, amount: 3 });
     }
     return { data, error: error?.message ?? null };
   },
@@ -263,7 +262,7 @@ export const ratings = {
   },
   submit: async (jobId: string, raterId: string, rateeId: string, score: number, comment: string, raterRole: 'worker' | 'poster'): Promise<ApiResponse<boolean>> => {
     const { error } = await supabase.from('ratings').insert({ job_id: jobId, rater_id: raterId, ratee_id: rateeId, score, comment, rater_role: raterRole });
-    if (!error) await supabase.rpc('refresh_rating_stats', { p_user_id: rateeId, p_role: raterRole }).catch(() => {});
+    if (!error) void supabase.rpc('refresh_rating_stats', { p_user_id: rateeId, p_role: raterRole });
     return { data: !error, error: error?.message ?? null };
   },
   hasRated: async (jobId: string, raterId: string, raterRole: 'worker' | 'poster'): Promise<boolean> => {
@@ -286,7 +285,7 @@ export const referrals = {
   recordReferral: async (referralCode: string, newUserId: string) => {
     const { data: referrer } = await supabase.from('profiles').select('id').eq('referral_code', referralCode).single();
     if (!referrer) return;
-    await supabase.from('referrals').insert({ referrer_id: referrer.id, referred_user_id: newUserId, status: 'pending' }).catch(() => {});
+    void supabase.from('referrals').insert({ referrer_id: referrer.id, referred_user_id: newUserId, status: 'pending' });
   },
 };
 
